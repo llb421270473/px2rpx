@@ -2,7 +2,7 @@
 
 var program = require('commander');
 var pkg = require('../package.json');
-var Px2rem = require('../index');
+var Px2rpx = require('../index');
 var chalk = require('chalk');
 var path = require('path');
 var fs = require('fs-extra');
@@ -54,7 +54,7 @@ var config = {
   remPrecision: deserializeValue(program.remPrecision)
 };
 
-var px2remIns = new Px2rem(config);
+var px2rpxIns = new Px2rpx(config);
 
 program.args.forEach(function (filePath) {
 
@@ -69,7 +69,7 @@ program.args.forEach(function (filePath) {
   // generate @1x, @2x and @3x version stylesheet
   if (config.threeVersion) {
     for (var dpr = 1; dpr <= 3; dpr++) {
-      var newCssText = px2remIns.generateThree(cssText, dpr);
+      var newCssText = px2rpxIns.generateThree(cssText, dpr);
       var newFileName = fileName.replace(/(.debug)?.css/, dpr + 'x.debug.css');
       var newFilepath = path.join(outputPath, newFileName);
       saveFile(newFilepath, newCssText);
@@ -78,7 +78,7 @@ program.args.forEach(function (filePath) {
 
   // generate rem version stylesheet
   if (config.remVersion) {
-    var newCssText = px2remIns.generateRem(cssText);
+    var newCssText = px2rpxIns.generateRem(cssText);
     var newFileName = fileName.replace(/(.debug)?.css/, '.debug.css');
     var newFilepath = path.join(outputPath, newFileName);
     saveFile(newFilepath, newCssText);
