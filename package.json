@@ -1,7 +1,7 @@
 {
-  "name": "px2rpx",
-  "description": "According to one stylesheet, generate rem version and @1x, @2x and @3x stylesheet",
-  "version": "1.0.0",
+  "name": "mp-px2rpx",
+  "description": "fork from px2rem",
+  "version": "1.0.1",
   "homepage": "https://github.com/llb421270473/px2rpx",
   "author": "calvin <421270473@qq.com>",
   "repository": {
@@ -29,8 +29,8 @@
   },
   "main": "index.js",
   "keywords": [
-    "3x",
-    "rem",
+    "rpx",
+    "px2rpx",
     "px2rem"
   ],
   "license": "MIT"
